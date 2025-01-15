@@ -2,12 +2,17 @@ package com.demo.demo_spring_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class DemoSpringAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoSpringAppApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(DemoSpringAppApplication.class, args);
+
+		Dev dev = context.getBean(Dev.class);
+
+		dev.build();
 	}
 
 }
